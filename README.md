@@ -11,5 +11,8 @@ Nossa plataforma permite que os usuários criem seu cadastro para que cada vez q
 
 ![](https://github.com/nathaliyukari/Gachamon/blob/master/Gachamon-loading.png?raw=true)
 
+Planejamento:
+https://trello.com/b/BRp74FZ0/gachamon
+
 Diagrama de classes:
 https://app.creately.com/diagram/riAMy2Q4U1r/edit
