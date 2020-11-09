@@ -89,7 +89,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\luize\OneDrive\&#xc1;rea de Trabalho\img1 (1).png"/>
+          <Image iconType="3" name="/imgs/img1 (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
@@ -102,7 +102,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\luize\OneDrive\&#xc1;rea de Trabalho\picasion.com_d0c9adeb67c3d4c5acdbb86827550da6.gif"/>
+          <Image iconType="3" name="/imgs/picasion.com_d0c9adeb67c3d4c5acdbb86827550da6.gif"/>
         </Property>
       </Properties>
       <Constraints>
@@ -130,7 +130,7 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\luize\Downloads\ash editar (1).png"/>
+              <Image iconType="3" name="/imgs/ash editar (1).png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -169,7 +169,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\luize\OneDrive\&#xc1;rea de Trabalho\logo.png"/>
+              <Image iconType="3" name="/imgs/logo.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -228,19 +228,19 @@
             <Component class="javax.swing.JLabel" name="blastoiseimg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\luize\OneDrive\&#xc1;rea de Trabalho\gachamon imgs\blastoise oficial.png"/>
+                  <Image iconType="3" name="/imgs/blastoise oficial.png"/>
                 </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="-130" y="100" width="450" height="290"/>
+                  <AbsoluteConstraints x="-120" y="100" width="450" height="290"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="bulbasaurimg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\luize\OneDrive\&#xc1;rea de Trabalho\gachamon imgs\bulbasaur oficial.png"/>
+                  <Image iconType="3" name="/imgs/bulbasaur oficial.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -257,7 +257,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="BLASTOISE"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -284,7 +283,7 @@
             <Component class="javax.swing.JLabel" name="fundo">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\luize\OneDrive\&#xc1;rea de Trabalho\fundo preto e branco.jpg"/>
+                  <Image iconType="3" name="/imgs/fundo preto e branco.jpg"/>
                 </Property>
               </Properties>
               <Constraints>

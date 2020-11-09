@@ -108,17 +108,17 @@ public class view_menu extends javax.swing.JFrame {
         });
         getContentPane().add(endbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\OneDrive\\Área de Trabalho\\img1 (1).png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/img1 (1).png"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 300, 340));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\OneDrive\\Área de Trabalho\\picasion.com_d0c9adeb67c3d4c5acdbb86827550da6.gif")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/picasion.com_d0c9adeb67c3d4c5acdbb86827550da6.gif"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 300, 340));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\Downloads\\ash editar (1).png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ash editar (1).png"))); // NOI18N
         jPanel1.add(jLabel4);
         jLabel4.setBounds(0, 0, 70, 66);
 
@@ -130,7 +130,7 @@ public class view_menu extends javax.swing.JFrame {
         jPanel1.add(nometxt);
         nometxt.setBounds(76, 20, 150, 22);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\OneDrive\\Área de Trabalho\\logo.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/logo.png"))); // NOI18N
         jPanel1.add(jLabel6);
         jLabel6.setBounds(120, 120, 120, 110);
 
@@ -162,15 +162,14 @@ public class view_menu extends javax.swing.JFrame {
 
         panelfundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        blastoiseimg.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\OneDrive\\Área de Trabalho\\gachamon imgs\\blastoise oficial.png")); // NOI18N
-        panelfundo.add(blastoiseimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 100, 450, 290));
+        blastoiseimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/blastoise oficial.png"))); // NOI18N
+        panelfundo.add(blastoiseimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 100, 450, 290));
 
-        bulbasaurimg.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\OneDrive\\Área de Trabalho\\gachamon imgs\\bulbasaur oficial.png")); // NOI18N
+        bulbasaurimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bulbasaur oficial.png"))); // NOI18N
         panelfundo.add(bulbasaurimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 490, 430));
 
         nomepoketxt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nomepoketxt.setForeground(new java.awt.Color(255, 255, 255));
-        nomepoketxt.setText("BLASTOISE");
         panelfundo.add(nomepoketxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 100, 30));
 
         txtpoke.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -178,7 +177,7 @@ public class view_menu extends javax.swing.JFrame {
         txtpoke.setText("Você ganhou o Pokémon:");
         panelfundo.add(txtpoke, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, 40));
 
-        fundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\luize\\OneDrive\\Área de Trabalho\\fundo preto e branco.jpg")); // NOI18N
+        fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/fundo preto e branco.jpg"))); // NOI18N
         panelfundo.add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 510, 460));
 
         jPanel1.add(panelfundo);
@@ -217,21 +216,22 @@ public class view_menu extends javax.swing.JFrame {
         endbut.setVisible(false);
         
         
-        aleatorio = gerador.nextInt(7);
+        aleatorio = gerador.nextInt(2);
         switch(aleatorio){
-            case 1:
+            case 0:
                 nomepoketxt.setText("BLASTOISE");
                 panelfundo.setVisible(true);
                 blastoiseimg.setVisible(true);
+                bulbasaurimg.setVisible(false);
                 nomepoketxt.setVisible(true);
                 break;
-            case 2:
+            case 1:
                 nomepoketxt.setText("BULBASAUR");
                 panelfundo.setVisible(true);
                 bulbasaurimg.setVisible(true);
                 nomepoketxt.setVisible(true);
                 break;
-            case 3:
+            case 2:
                 nomepoketxt.setText("CATERPIE");
                 panelfundo.setVisible(true);
                 blastoiseimg.setVisible(true);
