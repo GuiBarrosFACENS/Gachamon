@@ -34,7 +34,8 @@ public class view_menu extends javax.swing.JFrame {
         panelfundo.setVisible(false);
         blastoiseimg.setVisible(false);
         bulbasaurimg.setVisible(false);
-        
+        eveeimg.setVisible(false);
+        psyduckimg.setVisible(false);
         
     }
 
@@ -62,6 +63,18 @@ public class view_menu extends javax.swing.JFrame {
         addsaldo = new javax.swing.JTextField();
         enviarbut = new javax.swing.JButton();
         panelfundo = new javax.swing.JPanel();
+        zubatimg = new javax.swing.JLabel();
+        squirtleimg = new javax.swing.JLabel();
+        psyduckimg = new javax.swing.JLabel();
+        pikachuimg = new javax.swing.JLabel();
+        mewtwoimg = new javax.swing.JLabel();
+        meowthimg = new javax.swing.JLabel();
+        lucarioimg = new javax.swing.JLabel();
+        ekansimg = new javax.swing.JLabel();
+        eveeimg = new javax.swing.JLabel();
+        charmanderimg = new javax.swing.JLabel();
+        charizardimg = new javax.swing.JLabel();
+        caterpieimg = new javax.swing.JLabel();
         blastoiseimg = new javax.swing.JLabel();
         bulbasaurimg = new javax.swing.JLabel();
         nomepoketxt = new javax.swing.JLabel();
@@ -162,11 +175,47 @@ public class view_menu extends javax.swing.JFrame {
 
         panelfundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        zubatimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/zubat certo.png"))); // NOI18N
+        panelfundo.add(zubatimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 340, 320));
+
+        squirtleimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Squirtle.png"))); // NOI18N
+        panelfundo.add(squirtleimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 310, 360));
+
+        psyduckimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/psyduck certoo.png"))); // NOI18N
+        panelfundo.add(psyduckimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 410, 420));
+
+        pikachuimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/pikachu certo.png"))); // NOI18N
+        panelfundo.add(pikachuimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 340, 310));
+
+        mewtwoimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Mewtwo certo.png"))); // NOI18N
+        panelfundo.add(mewtwoimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 100, 320, 320));
+
+        meowthimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/meowth certo.png"))); // NOI18N
+        panelfundo.add(meowthimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 350, 320));
+
+        lucarioimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/lucario certoo.png"))); // NOI18N
+        panelfundo.add(lucarioimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 290, 370));
+
+        ekansimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ekans certo.png"))); // NOI18N
+        panelfundo.add(ekansimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 290, 300));
+
+        eveeimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/evee certo.png"))); // NOI18N
+        panelfundo.add(eveeimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 90, 350, 350));
+
+        charmanderimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/charmander certo.png"))); // NOI18N
+        panelfundo.add(charmanderimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 250, 310));
+
+        charizardimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/charizard certo.png"))); // NOI18N
+        panelfundo.add(charizardimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 90, 450, 300));
+
+        caterpieimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/caterpie cert.png"))); // NOI18N
+        panelfundo.add(caterpieimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 340, 300));
+
         blastoiseimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/blastoise oficial.png"))); // NOI18N
         panelfundo.add(blastoiseimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 100, 450, 290));
 
         bulbasaurimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bulbasaur oficial.png"))); // NOI18N
-        panelfundo.add(bulbasaurimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 490, 430));
+        panelfundo.add(bulbasaurimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 490, 410));
 
         nomepoketxt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nomepoketxt.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,7 +249,19 @@ public class view_menu extends javax.swing.JFrame {
         endbut.setVisible(true);
         panelfundo.setVisible(false);
         blastoiseimg.setVisible(false);
-        
+        bulbasaurimg.setVisible(false);
+        caterpieimg.setVisible(false);
+        charizardimg.setVisible(false);
+        charmanderimg.setVisible(false);
+        ekansimg.setVisible(false);
+        eveeimg.setVisible(false);
+        lucarioimg.setVisible(false);
+        meowthimg.setVisible(false);
+        mewtwoimg.setVisible(false);
+        pikachuimg.setVisible(false);
+        psyduckimg.setVisible(false);
+        squirtleimg.setVisible(false);
+        zubatimg.setVisible(false);
         }
         else{
             jDialog1.setSize(500, 500);
@@ -216,13 +277,12 @@ public class view_menu extends javax.swing.JFrame {
         endbut.setVisible(false);
         
         
-        aleatorio = gerador.nextInt(2);
+        aleatorio = gerador.nextInt(14);
         switch(aleatorio){
             case 0:
                 nomepoketxt.setText("BLASTOISE");
                 panelfundo.setVisible(true);
                 blastoiseimg.setVisible(true);
-                bulbasaurimg.setVisible(false);
                 nomepoketxt.setVisible(true);
                 break;
             case 1:
@@ -234,9 +294,75 @@ public class view_menu extends javax.swing.JFrame {
             case 2:
                 nomepoketxt.setText("CATERPIE");
                 panelfundo.setVisible(true);
-                blastoiseimg.setVisible(true);
+                caterpieimg.setVisible(true);
                 nomepoketxt.setVisible(true);
                 break;
+            case 3:
+                nomepoketxt.setText("CHARIZARD");
+                panelfundo.setVisible(true);
+                charizardimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;    
+            case 4:
+                nomepoketxt.setText("CHARMANDER");
+                panelfundo.setVisible(true);
+                charmanderimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;    
+            case 5:
+                nomepoketxt.setText("EEVEE");
+                panelfundo.setVisible(true);
+                eveeimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;  
+            case 6:
+                nomepoketxt.setText("EKANS");
+                panelfundo.setVisible(true);
+                ekansimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;      
+            case 7:
+                nomepoketxt.setText("LUCARIO");
+                panelfundo.setVisible(true);
+                lucarioimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;      
+            case 8:
+                nomepoketxt.setText("MEOWTH");
+                panelfundo.setVisible(true);
+                meowthimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;  
+            case 9:
+                nomepoketxt.setText("MEWTWO");
+                panelfundo.setVisible(true);
+                mewtwoimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;    
+            case 10:
+                nomepoketxt.setText("PIKACHU");
+                panelfundo.setVisible(true);
+                pikachuimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;      
+            case 11:
+                nomepoketxt.setText("PSYDUCK");
+                panelfundo.setVisible(true);
+                psyduckimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;    
+            case 12:
+                nomepoketxt.setText("SQUIRTLE");
+                panelfundo.setVisible(true);
+                squirtleimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;    
+            case 13:
+                nomepoketxt.setText("ZUBAT");
+                panelfundo.setVisible(true);
+                zubatimg.setVisible(true);
+                nomepoketxt.setVisible(true);
+                break;         
             default: 
                 break;
         }
@@ -298,8 +424,13 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JTextField addsaldo;
     private javax.swing.JLabel blastoiseimg;
     private javax.swing.JLabel bulbasaurimg;
+    private javax.swing.JLabel caterpieimg;
+    private javax.swing.JLabel charizardimg;
+    private javax.swing.JLabel charmanderimg;
+    private javax.swing.JLabel ekansimg;
     private javax.swing.JButton endbut;
     private javax.swing.JButton enviarbut;
+    private javax.swing.JLabel eveeimg;
     private javax.swing.JLabel fundo;
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
@@ -309,11 +440,18 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lucarioimg;
+    private javax.swing.JLabel meowthimg;
+    private javax.swing.JLabel mewtwoimg;
     private javax.swing.JLabel nomepoketxt;
     private javax.swing.JLabel nometxt;
     private javax.swing.JPanel panelfundo;
+    private javax.swing.JLabel pikachuimg;
     private javax.swing.JButton playbut;
+    private javax.swing.JLabel psyduckimg;
     private javax.swing.JLabel saldotxt;
+    private javax.swing.JLabel squirtleimg;
     private javax.swing.JLabel txtpoke;
+    private javax.swing.JLabel zubatimg;
     // End of variables declaration//GEN-END:variables
 }
