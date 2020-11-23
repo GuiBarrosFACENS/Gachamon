@@ -12,18 +12,48 @@ import java.util.Random;
  * @author luize
  */
 public class view_menu extends javax.swing.JFrame {
-    private int saldo=10;
-    private String saldostr;
-    private String nome;
-    private int aleatorio;
+    public int saldo=10;
+    public String saldostr;
+    public String nome;
+    public int aleatorio;
     Random gerador = new Random();
+    private int bulbasaur;
+    private int caterpie;
+    private int charizard;
+    private int squirtle;
+    private int blastoise;
+    private int charmander;
+    private int zubat;
+    private int ekans;
+    private int meowth;
+    private int eevee;
+    private int psyduck;
+    private int pikachu;
+    private int mewtwo;
+    private int lucario;
+            
+    
+            
     /**
      * Creates new form view_menu
      */
     public view_menu() {
         nome = "Luiz";
-        
         initComponents();
+        caterpie=0;
+        squirtle=0;
+        charizard=0;
+        bulbasaur=0;
+        blastoise=0;
+        charmander=0;
+        ekans=0;
+        zubat=0;
+        eevee=0;
+        psyduck=0;
+        meowth=0;
+        pikachu=0;
+        lucario=0;
+        mewtwo=0;
         saldostr = Integer.toString(saldo);
         saldotxt.setText("Saldo: "+ saldostr);
         nometxt.setText("Treinador: "+ nome);
@@ -37,8 +67,9 @@ public class view_menu extends javax.swing.JFrame {
         eveeimg.setVisible(false);
         psyduckimg.setVisible(false);
         
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +111,7 @@ public class view_menu extends javax.swing.JFrame {
         nomepoketxt = new javax.swing.JLabel();
         txtpoke = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jDialog1.setAlwaysOnTop(true);
 
@@ -176,7 +208,7 @@ public class view_menu extends javax.swing.JFrame {
         panelfundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         zubatimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/zubat certo.png"))); // NOI18N
-        panelfundo.add(zubatimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 340, 320));
+        panelfundo.add(zubatimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 340, 320));
 
         squirtleimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Squirtle.png"))); // NOI18N
         panelfundo.add(squirtleimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 310, 360));
@@ -232,6 +264,15 @@ public class view_menu extends javax.swing.JFrame {
         jPanel1.add(panelfundo);
         panelfundo.setBounds(350, 120, 340, 460);
 
+        jButton1.setText("Pokedex");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(600, 10, 110, 40);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 620));
 
         pack();
@@ -275,93 +316,122 @@ public class view_menu extends javax.swing.JFrame {
         jLabel3.setVisible(true);
         playbut.setVisible(true);
         endbut.setVisible(false);
-        
+        pokedex pok = new pokedex();
         
         aleatorio = gerador.nextInt(14);
         switch(aleatorio){
+            
             case 0:
                 nomepoketxt.setText("BLASTOISE");
                 panelfundo.setVisible(true);
                 blastoiseimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setBlast(10);
+                setBlastoise(10);
                 break;
             case 1:
                 nomepoketxt.setText("BULBASAUR");
                 panelfundo.setVisible(true);
                 bulbasaurimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setBulba(10);
+                setBulbasaur(10);
                 break;
             case 2:
                 nomepoketxt.setText("CATERPIE");
                 panelfundo.setVisible(true);
                 caterpieimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setCaterp(10);
+                setCaterpie(10);
                 break;
             case 3:
                 nomepoketxt.setText("CHARIZARD");
                 panelfundo.setVisible(true);
                 charizardimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setChariz(10);
+                setCharizard(10);
                 break;    
             case 4:
                 nomepoketxt.setText("CHARMANDER");
                 panelfundo.setVisible(true);
                 charmanderimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setCharm(10);
+                setCharmander(10);
                 break;    
             case 5:
                 nomepoketxt.setText("EEVEE");
                 panelfundo.setVisible(true);
                 eveeimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setEevee(10);
+                setEevee(10);
                 break;  
             case 6:
                 nomepoketxt.setText("EKANS");
                 panelfundo.setVisible(true);
                 ekansimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setEkans(10);
+                setEkans(10);
                 break;      
             case 7:
                 nomepoketxt.setText("LUCARIO");
                 panelfundo.setVisible(true);
                 lucarioimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setLuca(10);
+                setLucario(10);
                 break;      
             case 8:
                 nomepoketxt.setText("MEOWTH");
                 panelfundo.setVisible(true);
                 meowthimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setMeowth(10);
+                setMeowth(10);
                 break;  
             case 9:
                 nomepoketxt.setText("MEWTWO");
                 panelfundo.setVisible(true);
                 mewtwoimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setMew2(10);
+                setMewtwo(10);
                 break;    
             case 10:
                 nomepoketxt.setText("PIKACHU");
                 panelfundo.setVisible(true);
                 pikachuimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setPik(10);
+                setPikachu(10);
                 break;      
             case 11:
                 nomepoketxt.setText("PSYDUCK");
                 panelfundo.setVisible(true);
                 psyduckimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setPsy(10);
+                setPsyduck(10);
                 break;    
             case 12:
                 nomepoketxt.setText("SQUIRTLE");
                 panelfundo.setVisible(true);
                 squirtleimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setSquirt(10);
+                setSquirtle(10);
                 break;    
             case 13:
                 nomepoketxt.setText("ZUBAT");
                 panelfundo.setVisible(true);
                 zubatimg.setVisible(true);
                 nomepoketxt.setVisible(true);
+                pok.setZub(10);
+                setZubat(10);
                 break;         
             default: 
                 break;
@@ -384,6 +454,82 @@ public class view_menu extends javax.swing.JFrame {
         addsaldo.setVisible(false);
         enviarbut.setVisible(false);
     }//GEN-LAST:event_enviarbutActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       pokedex dex = new pokedex();
+       if(getBulbasaur()==10){
+           
+           dex.setBulba(10);
+           
+       }else{}
+       if(getSquirtle()==10){
+           
+           dex.setSquirt(10);
+           
+       }else{}
+       if(getCharizard()==10){
+           
+           dex.setChariz(10);
+           
+       }else{}
+       if(getCaterpie()==10){
+           
+           dex.setCaterp(10);
+           
+       }else{}
+       if(getBlastoise()==10){
+           
+           dex.setBlast(10);
+           
+       }else{}
+       if(getCharmander()==10){
+           
+           dex.setCharm(10);
+           
+       }else{}
+       if(getZubat()==10){
+           
+           dex.setZub(10);
+           
+       }else{}
+       if(getEkans()==10){
+           
+           dex.setEkans(10);
+           
+       }else{}
+       if(getEevee()==10){
+           
+           dex.setEevee(10);
+           
+       }else{}
+       if(getMeowth()==10){
+           
+           dex.setMeowth(10);
+           
+       }else{}
+       if(getPsyduck()==10){
+           
+           dex.setPsy(10);
+           
+       }else{}
+       if(getPikachu()==10){
+           
+           dex.setPik(10);
+           
+       }else{}
+       if(getLucario()==10){
+           
+           dex.setLuca(10);
+           
+       }else{}
+       if(getMewtwo()==10){
+           
+           dex.setMew2(10);
+           
+       }else{}
+       dex.setVisible(true);
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -432,6 +578,7 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JButton enviarbut;
     private javax.swing.JLabel eveeimg;
     private javax.swing.JLabel fundo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
@@ -454,4 +601,214 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtpoke;
     private javax.swing.JLabel zubatimg;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the bulbasaur
+     */
+    public int getBulbasaur() {
+        return bulbasaur;
+    }
+
+    /**
+     * @param bulbasaur the bulbasaur to set
+     */
+    public void setBulbasaur(int bulbasaur) {
+        this.bulbasaur = bulbasaur;
+    }
+
+    /**
+     * @return the squirtle
+     */
+    public int getSquirtle() {
+        return squirtle;
+    }
+
+    /**
+     * @param squirtle the squirtle to set
+     */
+    public void setSquirtle(int squirtle) {
+        this.squirtle = squirtle;
+    }
+
+    /**
+     * @return the charizard
+     */
+    public int getCharizard() {
+        return charizard;
+    }
+
+    /**
+     * @param charizard the charizard to set
+     */
+    public void setCharizard(int charizard) {
+        this.charizard = charizard;
+    }
+
+    /**
+     * @return the caterpie
+     */
+    public int getCaterpie() {
+        return caterpie;
+    }
+
+    /**
+     * @param caterpie the caterpie to set
+     */
+    public void setCaterpie(int caterpie) {
+        this.caterpie = caterpie;
+    }
+
+    /**
+     * @return the blastoise
+     */
+    public int getBlastoise() {
+        return blastoise;
+    }
+
+    /**
+     * @param blastoise the blastoise to set
+     */
+    public void setBlastoise(int blastoise) {
+        this.blastoise = blastoise;
+    }
+
+    /**
+     * @return the charmander
+     */
+    public int getCharmander() {
+        return charmander;
+    }
+
+    /**
+     * @param charmander the charmander to set
+     */
+    public void setCharmander(int charmander) {
+        this.charmander = charmander;
+    }
+
+    /**
+     * @return the zubat
+     */
+    public int getZubat() {
+        return zubat;
+    }
+
+    /**
+     * @param zubat the zubat to set
+     */
+    public void setZubat(int zubat) {
+        this.zubat = zubat;
+    }
+
+    /**
+     * @return the ekans
+     */
+    public int getEkans() {
+        return ekans;
+    }
+
+    /**
+     * @param ekans the ekans to set
+     */
+    public void setEkans(int ekans) {
+        this.ekans = ekans;
+    }
+
+    /**
+     * @return the meowth
+     */
+    public int getMeowth() {
+        return meowth;
+    }
+
+    /**
+     * @param meowth the meowth to set
+     */
+    public void setMeowth(int meowth) {
+        this.meowth = meowth;
+    }
+
+    /**
+     * @return the eevee
+     */
+    public int getEevee() {
+        return eevee;
+    }
+
+    /**
+     * @param eevee the eevee to set
+     */
+    public void setEevee(int eevee) {
+        this.eevee = eevee;
+    }
+
+    /**
+     * @return the psyduck
+     */
+    public int getPsyduck() {
+        return psyduck;
+    }
+
+    /**
+     * @param psyduck the psyduck to set
+     */
+    public void setPsyduck(int psyduck) {
+        this.psyduck = psyduck;
+    }
+
+    /**
+     * @return the pikachu
+     */
+    public int getPikachu() {
+        return pikachu;
+    }
+
+    /**
+     * @param pikachu the pikachu to set
+     */
+    public void setPikachu(int pikachu) {
+        this.pikachu = pikachu;
+    }
+
+    /**
+     * @return the mewtwo
+     */
+    public int getMewtwo() {
+        return mewtwo;
+    }
+
+    /**
+     * @param mewtwo the mewtwo to set
+     */
+    public void setMewtwo(int mewtwo) {
+        this.mewtwo = mewtwo;
+    }
+
+    /**
+     * @return the lucario
+     */
+    public int getLucario() {
+        return lucario;
+    }
+
+    /**
+     * @param lucario the lucario to set
+     */
+    public void setLucario(int lucario) {
+        this.lucario = lucario;
+    }
 }
