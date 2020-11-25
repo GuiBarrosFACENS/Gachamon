@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Views;
+package View;
 
 import java.util.Random;
 
@@ -112,7 +112,6 @@ public class view_menu extends javax.swing.JFrame {
         txtpoke = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         jDialog1.setAlwaysOnTop(true);
 
@@ -166,7 +165,7 @@ public class view_menu extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ash editar (1).png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(0, 0, 70, 66);
+        jLabel4.setBounds(0, 0, 0, 66);
 
         saldotxt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(saldotxt);
@@ -273,11 +272,6 @@ public class view_menu extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1);
         jButton1.setBounds(600, 10, 110, 40);
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 102));
-        jButton2.setText("Novo Pokemon");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(634, 590, 140, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 620));
 
@@ -563,6 +557,7 @@ public class view_menu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(view_menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -585,7 +580,6 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JLabel eveeimg;
     private javax.swing.JLabel fundo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;

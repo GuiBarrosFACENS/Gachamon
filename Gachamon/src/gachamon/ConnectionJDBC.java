@@ -19,8 +19,4 @@ public class ConnectionJDBC {
         }
         return connection;
     }
-    public static void closeConnection(Connection con) throws SQLException {
-        con.close();
-        System.out.println("Conexao fechada");
-        }
 }
