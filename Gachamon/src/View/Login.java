@@ -195,8 +195,11 @@ public class Login extends javax.swing.JFrame {
                 if(rs.getString("email").equals(txtEmail.getText())){
                     if(rs.getString("senha").equals(txtSenha.getText())){
                         JOptionPane.showMessageDialog(rootPane, "Bem vindo, " + rs.getString("nome"));
-                        
-                        home.setVisible(true);
+                          PreparedStatement update = con.prepareStatement("update cliente set logado = true where id = ?");
+                            update.setString(1, String.valueOf(rs.getInt("id")));
+                         update.executeUpdate();
+                        update.close();
+                           home.setVisible(true);
                         dispose();
                     }
                     else{

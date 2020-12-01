@@ -5,24 +5,20 @@
  */
 package View;
 import gachamon.ConnectionJDBC;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Random;
-import gachamon.User;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import gachamon.User;
 /**
  *
  * @author luize
  */
 public class view_menu extends javax.swing.JFrame {
-    public int saldo=10;
+    
     public String saldostr;
-    public String nome;
     public int aleatorio;
     Random gerador = new Random();
     private int bulbasaur;
@@ -39,7 +35,9 @@ public class view_menu extends javax.swing.JFrame {
     private int pikachu;
     private int mewtwo;
     private int lucario;
-    public String txtNome;        
+    public String txtNome;  
+    String nome = "-";
+    int saldo = 0;
     
             
     /**
@@ -50,8 +48,24 @@ public class view_menu extends javax.swing.JFrame {
      
 
     public view_menu() {
-        nome = "Luiz";
         initComponents();
+        Connection con = ConnectionJDBC.getConnection();
+        String update = "select * from cliente where logado = true";
+        PreparedStatement prst = null;
+        try {
+            prst = con.prepareStatement(update);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSet rs = null;
+        try {
+            rs = prst.executeQuery();
+            rs.next();
+            nome = rs.getString("nome");
+            saldo = rs.getInt("saldo");
+            }catch (SQLException ex) {
+            	Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+			}
         caterpie=0;
         squirtle=0;
         charizard=0;

@@ -9,6 +9,15 @@ public class User {
     protected String password;
     protected Integer balance;
     protected List<Prize> prizes = new ArrayList<>();
+    private boolean logado;
+
+    public boolean isLogado() {
+        return logado;
+    }
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
+    }
 
     public String getNome() {
         return nome;
@@ -55,11 +64,13 @@ public class User {
         this.email = email;
         this.password = password;
         this.balance = balance;
+        this.logado = false;
     }
 
     @Override
     public String toString() {
         return "User{" + "nome=" + nome + ", email=" + email + ", password=" + password + ", balance=" + balance + ", prizes=" + prizes + '}';
     }
+    
     
 }
