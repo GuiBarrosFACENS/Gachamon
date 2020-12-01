@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    protected String nome;
+    public String nome;
     protected String email;
     protected String password;
     protected Integer balance;

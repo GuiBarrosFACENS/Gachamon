@@ -178,6 +178,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        view_menu home = new view_menu();
         if(!(txtEmail.getText().equals("")|| txtSenha.getText().equals(""))){
            Connection con = ConnectionJDBC.getConnection();
         PreparedStatement prst = null;
@@ -194,6 +195,9 @@ public class Login extends javax.swing.JFrame {
                 if(rs.getString("email").equals(txtEmail.getText())){
                     if(rs.getString("senha").equals(txtSenha.getText())){
                         JOptionPane.showMessageDialog(rootPane, "Bem vindo, " + rs.getString("nome"));
+                        
+                        home.setVisible(true);
+                        dispose();
                     }
                     else{
                         JOptionPane.showMessageDialog(rootPane, "Senha incorreta");

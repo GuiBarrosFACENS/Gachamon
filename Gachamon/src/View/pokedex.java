@@ -14,7 +14,7 @@ import java.sql.Connection;
 
 public final class pokedex extends javax.swing.JFrame {
     view_menu view = new view_menu();
-    String name;
+    public String name;
     private int bulba;
     private int squirt;
     private int chariz;
@@ -37,7 +37,7 @@ public final class pokedex extends javax.swing.JFrame {
      */
     public pokedex() {
         
-        name = view.nome;
+       
         initComponents();
         bulbapeqcol.setVisible(false);
         bulbapeqpret.setVisible(false);

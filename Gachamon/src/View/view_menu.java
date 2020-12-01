@@ -4,9 +4,17 @@
  * and open the template in the editor.
  */
 package View;
-
+import gachamon.ConnectionJDBC;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
-
+import gachamon.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import gachamon.User;
 /**
  *
  * @author luize
@@ -31,12 +39,16 @@ public class view_menu extends javax.swing.JFrame {
     private int pikachu;
     private int mewtwo;
     private int lucario;
-            
+    public String txtNome;        
     
             
     /**
      * Creates new form view_menu
      */
+    
+     
+     
+
     public view_menu() {
         nome = "Luiz";
         initComponents();
@@ -86,7 +98,6 @@ public class view_menu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         saldotxt = new javax.swing.JLabel();
         nometxt = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -112,6 +123,8 @@ public class view_menu extends javax.swing.JFrame {
         txtpoke = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jDialog1.setAlwaysOnTop(true);
 
@@ -154,7 +167,6 @@ public class view_menu extends javax.swing.JFrame {
         getContentPane().add(endbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/img1 (1).png"))); // NOI18N
-        jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 300, 340));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/picasion.com_d0c9adeb67c3d4c5acdbb86827550da6.gif"))); // NOI18N
@@ -162,10 +174,6 @@ public class view_menu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ash editar (1).png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(0, 0, 0, 66);
 
         saldotxt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(saldotxt);
@@ -186,7 +194,7 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(190, 10, 90, 25);
+        jButton3.setBounds(190, 10, 90, 23);
 
         addsaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +279,20 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(600, 10, 110, 40);
+        jButton1.setBounds(500, 20, 110, 40);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ash editar (1).png"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, 0, 70, 70);
+
+        jButton2.setText("Novo Pokemon");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(680, 0, 110, 40);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 620));
 
@@ -312,6 +333,8 @@ public class view_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_playbutActionPerformed
 
     private void endbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endbutActionPerformed
+
+        
         jLabel2.setVisible(false);
         jLabel3.setVisible(true);
         playbut.setVisible(true);
@@ -531,6 +554,12 @@ public class view_menu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CadastroPokemon cd = new CadastroPokemon();
+        cd.setVisible(true);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -580,12 +609,13 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JLabel eveeimg;
     private javax.swing.JLabel fundo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lucarioimg;
@@ -606,16 +636,7 @@ public class view_menu extends javax.swing.JFrame {
     /**
      * @return the nome
      */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    
 
     /**
      * @return the bulbasaur
