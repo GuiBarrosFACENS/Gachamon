@@ -208,7 +208,7 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(190, 10, 90, 23);
+        jButton3.setBounds(20, 80, 110, 25);
 
         addsaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,6 +296,11 @@ public class view_menu extends javax.swing.JFrame {
         jButton1.setBounds(500, 20, 110, 40);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ash editar (1).png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 70, 70);
 
@@ -306,7 +311,7 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(680, 0, 110, 40);
+        jButton2.setBounds(630, 20, 140, 40);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 620));
 
@@ -573,6 +578,16 @@ public class view_menu extends javax.swing.JFrame {
         cd.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+         new Thread(){
+               public void run(){
+              Perfil perfil = new Perfil();
+              perfil.setVisible(true);
+              dispose();  
+              }
+         }.start();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments

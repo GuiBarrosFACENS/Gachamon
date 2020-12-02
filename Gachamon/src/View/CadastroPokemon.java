@@ -142,14 +142,14 @@ public class CadastroPokemon extends javax.swing.JFrame {
                 txtPokemonActionPerformed(evt);
             }
         });
-        jPanel3.add(txtPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 101, 231, -1));
+        jPanel3.add(txtPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 231, -1));
 
         txtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescricaoActionPerformed(evt);
             }
         });
-        jPanel3.add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 168, 432, -1));
+        jPanel3.add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 432, -1));
 
         buttonCadastrar.setBackground(new java.awt.Color(255, 255, 102));
         buttonCadastrar.setText("Cadastrar Pokemon");
