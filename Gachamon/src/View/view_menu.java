@@ -107,8 +107,6 @@ public class view_menu extends javax.swing.JFrame {
 
         jDialog1 = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
-        playbut = new javax.swing.JButton();
-        endbut = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -136,8 +134,11 @@ public class view_menu extends javax.swing.JFrame {
         nomepoketxt = new javax.swing.JLabel();
         txtpoke = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        playbut = new javax.swing.JButton();
+        endbut = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         jDialog1.setAlwaysOnTop(true);
@@ -164,27 +165,11 @@ public class view_menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        playbut.setText("Play");
-        playbut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playbutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(playbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
-
-        endbut.setText("End");
-        endbut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                endbutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(endbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/img1 (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 300, 340));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 300, 340));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/picasion.com_d0c9adeb67c3d4c5acdbb86827550da6.gif"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 300, 340));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 300, 340));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
@@ -199,8 +184,9 @@ public class view_menu extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/logo.png"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(120, 120, 120, 110);
+        jLabel6.setBounds(120, 120, 100, 110);
 
+        jButton3.setBackground(new java.awt.Color(102, 255, 102));
         jButton3.setText("Add Saldo");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +194,7 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(20, 80, 110, 25);
+        jButton3.setBounds(20, 80, 110, 30);
 
         addsaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +202,7 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(addsaldo);
-        addsaldo.setBounds(310, 20, 59, 30);
+        addsaldo.setBounds(150, 80, 59, 30);
 
         enviarbut.setText("Enviar");
         enviarbut.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +211,7 @@ public class view_menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(enviarbut);
-        enviarbut.setBounds(370, 20, 70, 30);
+        enviarbut.setBounds(220, 80, 70, 30);
 
         panelfundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -281,19 +267,10 @@ public class view_menu extends javax.swing.JFrame {
         panelfundo.add(txtpoke, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, 40));
 
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/fundo preto e branco.jpg"))); // NOI18N
-        panelfundo.add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 510, 460));
+        panelfundo.add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 510, 460));
 
         jPanel1.add(panelfundo);
-        panelfundo.setBounds(350, 120, 340, 460);
-
-        jButton1.setText("Pokedex");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(500, 20, 110, 40);
+        panelfundo.setBounds(410, 120, 360, 460);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ash editar (1).png"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -304,18 +281,71 @@ public class view_menu extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 70, 70);
 
+        playbut.setBackground(new java.awt.Color(255, 255, 51));
+        playbut.setText("Play");
+        playbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playbutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(playbut);
+        playbut.setBounds(90, 570, 160, 40);
+
+        endbut.setText("End");
+        endbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endbutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(endbut);
+        endbut.setBounds(90, 570, 160, 40);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setText("Pokedex");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 102));
         jButton2.setText("Novo Pokemon");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(630, 20, 140, 40);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 620));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(556, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(380, 0, 420, 630);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 630));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void playbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playbutActionPerformed
@@ -485,18 +515,6 @@ public class view_menu extends javax.swing.JFrame {
         enviarbut.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void addsaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsaldoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsaldoActionPerformed
-
-    private void enviarbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarbutActionPerformed
-        saldo += Integer.parseInt (addsaldo.getText());
-        saldostr = Integer.toString(saldo);
-        saldotxt.setText("Saldo: "+ saldostr);
-        addsaldo.setVisible(false);
-        enviarbut.setVisible(false);
-    }//GEN-LAST:event_enviarbutActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        pokedex dex = new pokedex();
        if(getBulbasaur()==10){
@@ -589,6 +607,18 @@ public class view_menu extends javax.swing.JFrame {
          }.start();
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    private void addsaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsaldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsaldoActionPerformed
+
+    private void enviarbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarbutActionPerformed
+        saldo += Integer.parseInt (addsaldo.getText());
+        saldostr = Integer.toString(saldo);
+        saldotxt.setText("Saldo: "+ saldostr);
+        addsaldo.setVisible(false);
+        enviarbut.setVisible(false);
+    }//GEN-LAST:event_enviarbutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -647,6 +677,7 @@ public class view_menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lucarioimg;
     private javax.swing.JLabel meowthimg;
     private javax.swing.JLabel mewtwoimg;

@@ -129,7 +129,7 @@ public class CadastroPokemon extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Cadastrar Novo Pokemon");
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 22, -1, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         jLabel2.setText("Pokemon:");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 104, -1, -1));
