@@ -17,5 +17,5 @@ https://trello.com/b/BRp74FZ0/gachamon
 Diagrama de classes:
 https://app.creately.com/diagram/riAMy2Q4U1r/edit
 
-DER:
-https://app.creately.com/diagram/1KSQyLG6WF7/edit
+Modelo de Entidade Relacional:
+![](https://github.com/eeikee/Gachamon/blob/master/er_model.png)
