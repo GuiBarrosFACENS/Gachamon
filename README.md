@@ -18,4 +18,5 @@ Diagrama de classes:
 https://app.creately.com/diagram/riAMy2Q4U1r/edit
 
 Modelo de Entidade Relacional:
+
 ![](https://github.com/eeikee/Gachamon/blob/master/er_model.png)
