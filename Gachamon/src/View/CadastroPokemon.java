@@ -17,7 +17,7 @@ public class CadastroPokemon extends javax.swing.JFrame {
     Connection con = ConnectionJDBC.getConnection();
     Pokemon NovoPokemon = new Pokemon();
     
-    String addPokemon = "insert into novo_pokemon(pokemon, descricao) values(?,?)";
+    String addPokemon = "insert into pokemon(nome, descricao) values(?,?)";
 
     public CadastroPokemon() {
         initComponents();
@@ -58,7 +58,7 @@ public class CadastroPokemon extends javax.swing.JFrame {
         Connection con = ConnectionJDBC.getConnection();
         PreparedStatement prst = null;
         try {
-            prst = con.prepareStatement("select * from novo_pokemon where pokemon = ?");
+            prst = con.prepareStatement("select * from pokemon where nome = ?");
             prst.setString(1, ConsultaPokemon);
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,8 +68,8 @@ public class CadastroPokemon extends javax.swing.JFrame {
         try {
             rs = prst.executeQuery();
             rs.next();
-                if(rs.getString("pokemon").equals(ConsultaPokemon)){
-                ConsultaPokemon2.setText(rs.getString("pokemon"));
+                if(rs.getString("nome").equals(ConsultaPokemon)){
+                ConsultaPokemon2.setText(rs.getString("nome"));
                 ConsultaDescricao.setText(rs.getString("descricao"));
                 }
                 else{

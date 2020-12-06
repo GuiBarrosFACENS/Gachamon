@@ -5,6 +5,8 @@
  */
 package View;
 
+import gachamon.ConnectionJDBC;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,8 +28,21 @@ public class Loading extends javax.swing.JFrame {
         } catch (InterruptedException ex) {
             Logger.getLogger(Loading.class.getName()).log(Level.SEVERE, null, ex);
         }
-              Login login = new Login();
-              login.setVisible(true);
+                   try {
+                       String nome = ConnectionJDBC.usuarioLogado().getString("nome");
+                        if(nome != null){
+                            view_menu menu = new view_menu();
+                            menu.setVisible(true);
+                        }
+        else{
+                           Login login = new Login();
+                       login.setVisible(true); 
+                        }
+                   } catch (SQLException ex) {
+                       Logger.getLogger(Loading.class.getName()).log(Level.SEVERE, null, ex);
+                       Login login = new Login();
+                       login.setVisible(true);
+                   }
               dispose(); 
               }
          }.start();    

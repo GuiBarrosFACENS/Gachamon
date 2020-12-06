@@ -5,12 +5,16 @@
  */
 package View;
 
+import gachamon.ConnectionJDBC;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author luize
- */
 
 public final class pokedex extends javax.swing.JFrame {
     view_menu view = new view_menu();
@@ -36,8 +40,6 @@ public final class pokedex extends javax.swing.JFrame {
      * Creates new form pokedex
      */
     public pokedex() {
-        
-       
         initComponents();
         bulbapeqcol.setVisible(false);
         bulbapeqpret.setVisible(false);
@@ -81,7 +83,185 @@ public final class pokedex extends javax.swing.JFrame {
         txtpikachu.setVisible(false);
         txtlucario.setVisible(false);
         txtmewtwo.setVisible(false);
-        txtnamedex.setText("Treinador: " + name);
+        Connection con = ConnectionJDBC.getConnection();
+         PreparedStatement find = null;
+         List<Integer> pokemons = new ArrayList<>();
+            try {
+                find = con.prepareStatement("select * from cliente_pokemon where cliente_id = ? order by pokemon_id");
+                find.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            } catch (SQLException ex) {
+                Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ResultSet rs = null;
+            try {
+            rs = find.executeQuery();
+            while(rs.next()){
+                if(pokemons.contains(rs.getInt("pokemon_id"))){
+                    continue;
+                }
+                pokemons.add(rs.getInt("pokemon_id"));
+            }
+            }
+            catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(pokemons.contains(2)){
+            jLabel3.setVisible(true);
+            jLabel3.setText("Bulbasaur");
+            bulbapeqcol.setVisible(true);
+            bulbapeqpret.setVisible(false);
+        } else {
+            jLabel3.setVisible(true);
+            jLabel3.setText("??????");
+            bulbapeqcol.setVisible(false);
+            bulbapeqpret.setVisible(true);
+            
+        }
+        if(pokemons.contains(3)){
+            txtcaterp.setVisible(true);
+            txtcaterp.setText("Caterpie");
+            caterpiepeqcol.setVisible(true);
+            caterpiepeqpreto.setVisible(false);
+        } else {
+            txtcaterp.setVisible(true);
+            txtcaterp.setText("??????");
+            caterpiepeqcol.setVisible(false);
+            caterpiepeqpreto.setVisible(true);
+            
+        }
+        if(pokemons.contains(4)){
+            txtchariz.setVisible(true);
+            txtchariz.setText("Charizard");
+            charpeqcol.setVisible(true);
+            charpeqpreto.setVisible(false);
+        } else {
+            txtchariz.setVisible(true);
+            txtchariz.setText("??????");
+            charpeqcol.setVisible(false);
+            charpeqpreto.setVisible(true);
+            
+        }
+        if(pokemons.contains(13)){
+            txtsquirt.setVisible(true);
+            txtsquirt.setText("Squirtle");
+            squirtlepeqcol.setVisible(true);
+            squirtlepeqpreto.setVisible(false);
+        } else {
+            txtsquirt.setVisible(true);
+            txtsquirt.setText("??????");
+            squirtlepeqcol.setVisible(false);
+            squirtlepeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(1)){
+            txtblastoise.setVisible(true);
+            txtblastoise.setText("Blastoise");
+            blastpeqcol.setVisible(true);
+            blastpeqpreto.setVisible(false);
+        } else {
+            txtblastoise.setVisible(true);
+            txtblastoise.setText("??????");
+            blastpeqcol.setVisible(false);
+            blastpeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(5)){
+            txtcharmander.setVisible(true);
+            txtcharmander.setText("Charmander");
+            charmpeqcol.setVisible(true);
+            charmpeqpreto.setVisible(false);
+        } else {
+            txtcharmander.setVisible(true);
+            txtcharmander.setText("??????");
+            charmpeqcol.setVisible(false);
+            charmpeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(14)){
+            txtzubat.setVisible(true);
+            txtzubat.setText("Zubat");
+            zubatpeqcol.setVisible(true);
+            zubatpeqpreto.setVisible(false);
+        } else {
+            txtzubat.setVisible(true);
+            txtzubat.setText("??????");
+            zubatpeqcol.setVisible(false);
+            zubatpeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(7)){
+            txtekans.setVisible(true);
+            txtekans.setText("Ekans");
+            ekanspeqcol.setVisible(true);
+            ekanspeqpreto.setVisible(false);
+        } else {
+            txtekans.setVisible(true);
+            txtekans.setText("??????");
+            ekanspeqcol.setVisible(false);
+            ekanspeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(9)){
+            txtmeowth.setVisible(true);
+            txtmeowth.setText("Meowth");
+            meowthpeqcol.setVisible(true);
+            meowthpeqpreto.setVisible(false);
+        } else {
+            txtmeowth.setVisible(true);
+            txtmeowth.setText("??????");
+            meowthpeqcol.setVisible(false);
+            meowthpeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(12)){
+            txtpsyduck.setVisible(true);
+            txtpsyduck.setText("Psyduck");
+            psypeqcol.setVisible(true);
+            psypeqpreto.setVisible(false);
+        } else {
+            txtpsyduck.setVisible(true);
+            txtpsyduck.setText("??????");
+            psypeqcol.setVisible(false);
+            psypeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(6)){
+            txteevee.setVisible(true);
+            txteevee.setText("Eevee");
+            eeveepeqcol.setVisible(true);
+            eeveepeqpreto.setVisible(false);
+        } else {
+            txteevee.setVisible(true);
+            txteevee.setText("??????");
+            eeveepeqcol.setVisible(false);
+            eeveepeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(11)){
+            txtpikachu.setVisible(true);
+            txtpikachu.setText("Pikachu");
+            pikpeqcol.setVisible(true);
+            pikpeqpreto.setVisible(false);
+        } else {
+            txtpikachu.setVisible(true);
+            txtpikachu.setText("??????");
+            pikpeqcol.setVisible(false);
+            pikpeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(8)){
+            txtlucario.setVisible(true);
+            txtlucario.setText("Lucario");
+            lucapeqcol.setVisible(true);
+            lucapeqpreto.setVisible(false);
+        } else {
+            txtlucario.setVisible(true);
+            txtlucario.setText("??????");
+            lucapeqcol.setVisible(false);
+            lucapeqpreto.setVisible(true);
+        }
+        if(pokemons.contains(10)){
+            txtmewtwo.setVisible(true);
+            txtmewtwo.setText("Mewtwo");
+            mew2peqcol.setVisible(true);
+            mew2peqpreto.setVisible(false);
+        } else {
+            txtmewtwo.setVisible(true);
+            txtmewtwo.setText("??????");
+            mew2peqcol.setVisible(false);
+            mew2peqpreto.setVisible(true);
+        }
         
     
         
@@ -98,10 +278,9 @@ public final class pokedex extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtnamedex = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txtpsyduck = new javax.swing.JLabel();
         psypeqcol = new javax.swing.JLabel();
@@ -161,9 +340,8 @@ public final class pokedex extends javax.swing.JFrame {
         charpeqpreto = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         teste = new javax.swing.JLabel();
-        lista = new javax.swing.JButton();
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,9 +351,6 @@ public final class pokedex extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/img.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 90, 60));
-
-        txtnamedex.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(txtnamedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 250, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -402,14 +577,6 @@ public final class pokedex extends javax.swing.JFrame {
         teste.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(teste, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 80, 40));
 
-        lista.setText("Ver lista");
-        lista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 40));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -429,167 +596,6 @@ public final class pokedex extends javax.swing.JFrame {
         j=10;
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
-        if(getBulba()==10){
-            jLabel3.setVisible(true);
-            jLabel3.setText("Bulbasaur");
-            bulbapeqcol.setVisible(true);
-            bulbapeqpret.setVisible(false);
-        } else {
-            jLabel3.setVisible(true);
-            jLabel3.setText("??????");
-            bulbapeqcol.setVisible(false);
-            bulbapeqpret.setVisible(true);
-            
-        }
-        if(getCaterp()==10){
-            txtcaterp.setVisible(true);
-            txtcaterp.setText("Caterpie");
-            caterpiepeqcol.setVisible(true);
-            caterpiepeqpreto.setVisible(false);
-        } else {
-            txtcaterp.setVisible(true);
-            txtcaterp.setText("??????");
-            caterpiepeqcol.setVisible(false);
-            caterpiepeqpreto.setVisible(true);
-            
-        }
-        if(getChariz()==10){
-            txtchariz.setVisible(true);
-            txtchariz.setText("Charizard");
-            charpeqcol.setVisible(true);
-            charpeqpreto.setVisible(false);
-        } else {
-            txtchariz.setVisible(true);
-            txtchariz.setText("??????");
-            charpeqcol.setVisible(false);
-            charpeqpreto.setVisible(true);
-            
-        }
-        if(getSquirt()==10){
-            txtsquirt.setVisible(true);
-            txtsquirt.setText("Squirtle");
-            squirtlepeqcol.setVisible(true);
-            squirtlepeqpreto.setVisible(false);
-        } else {
-            txtsquirt.setVisible(true);
-            txtsquirt.setText("??????");
-            squirtlepeqcol.setVisible(false);
-            squirtlepeqpreto.setVisible(true);
-        }
-        if(getBlast()==10){
-            txtblastoise.setVisible(true);
-            txtblastoise.setText("Blastoise");
-            blastpeqcol.setVisible(true);
-            blastpeqpreto.setVisible(false);
-        } else {
-            txtblastoise.setVisible(true);
-            txtblastoise.setText("??????");
-            blastpeqcol.setVisible(false);
-            blastpeqpreto.setVisible(true);
-        }
-        if(getCharm()==10){
-            txtcharmander.setVisible(true);
-            txtcharmander.setText("Charmander");
-            charmpeqcol.setVisible(true);
-            charmpeqpreto.setVisible(false);
-        } else {
-            txtcharmander.setVisible(true);
-            txtcharmander.setText("??????");
-            charmpeqcol.setVisible(false);
-            charmpeqpreto.setVisible(true);
-        }
-        if(getZub()==10){
-            txtzubat.setVisible(true);
-            txtzubat.setText("Zubat");
-            zubatpeqcol.setVisible(true);
-            zubatpeqpreto.setVisible(false);
-        } else {
-            txtzubat.setVisible(true);
-            txtzubat.setText("??????");
-            zubatpeqcol.setVisible(false);
-            zubatpeqpreto.setVisible(true);
-        }
-        if(getEkans()==10){
-            txtekans.setVisible(true);
-            txtekans.setText("Ekans");
-            ekanspeqcol.setVisible(true);
-            ekanspeqpreto.setVisible(false);
-        } else {
-            txtekans.setVisible(true);
-            txtekans.setText("??????");
-            ekanspeqcol.setVisible(false);
-            ekanspeqpreto.setVisible(true);
-        }
-        if(getMeowth()==10){
-            txtmeowth.setVisible(true);
-            txtmeowth.setText("Meowth");
-            meowthpeqcol.setVisible(true);
-            meowthpeqpreto.setVisible(false);
-        } else {
-            txtmeowth.setVisible(true);
-            txtmeowth.setText("??????");
-            meowthpeqcol.setVisible(false);
-            meowthpeqpreto.setVisible(true);
-        }
-        if(getPsy()==10){
-            txtpsyduck.setVisible(true);
-            txtpsyduck.setText("Psyduck");
-            psypeqcol.setVisible(true);
-            psypeqpreto.setVisible(false);
-        } else {
-            txtpsyduck.setVisible(true);
-            txtpsyduck.setText("??????");
-            psypeqcol.setVisible(false);
-            psypeqpreto.setVisible(true);
-        }
-        if(getEevee()==10){
-            txteevee.setVisible(true);
-            txteevee.setText("Eevee");
-            eeveepeqcol.setVisible(true);
-            eeveepeqpreto.setVisible(false);
-        } else {
-            txteevee.setVisible(true);
-            txteevee.setText("??????");
-            eeveepeqcol.setVisible(false);
-            eeveepeqpreto.setVisible(true);
-        }
-        if(getPik()==10){
-            txtpikachu.setVisible(true);
-            txtpikachu.setText("Pikachu");
-            pikpeqcol.setVisible(true);
-            pikpeqpreto.setVisible(false);
-        } else {
-            txtpikachu.setVisible(true);
-            txtpikachu.setText("??????");
-            pikpeqcol.setVisible(false);
-            pikpeqpreto.setVisible(true);
-        }
-        if(getLuca()==10){
-            txtlucario.setVisible(true);
-            txtlucario.setText("Lucario");
-            lucapeqcol.setVisible(true);
-            lucapeqpreto.setVisible(false);
-        } else {
-            txtlucario.setVisible(true);
-            txtlucario.setText("??????");
-            lucapeqcol.setVisible(false);
-            lucapeqpreto.setVisible(true);
-        }
-        if(getMew2()==10){
-            txtmewtwo.setVisible(true);
-            txtmewtwo.setText("Mewtwo");
-            mew2peqcol.setVisible(true);
-            mew2peqpreto.setVisible(false);
-        } else {
-            txtmewtwo.setVisible(true);
-            txtmewtwo.setText("??????");
-            mew2peqcol.setVisible(false);
-            mew2peqpreto.setVisible(true);
-        }
-        
-    }//GEN-LAST:event_listaActionPerformed
     
     /**
      * @param args the command line arguments
@@ -662,7 +668,6 @@ public final class pokedex extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JButton lista;
     private javax.swing.JLabel lucapeqcol;
     private javax.swing.JLabel lucapeqpreto;
     private javax.swing.JLabel meowthpeqcol;
@@ -685,7 +690,6 @@ public final class pokedex extends javax.swing.JFrame {
     private javax.swing.JLabel txtlucario;
     private javax.swing.JLabel txtmeowth;
     private javax.swing.JLabel txtmewtwo;
-    private javax.swing.JLabel txtnamedex;
     private javax.swing.JLabel txtpikachu;
     private javax.swing.JLabel txtpsyduck;
     private javax.swing.JLabel txtsquirt;

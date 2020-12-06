@@ -178,7 +178,6 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        view_menu home = new view_menu();
         if(!(txtEmail.getText().equals("")|| txtSenha.getText().equals(""))){
            Connection con = ConnectionJDBC.getConnection();
         PreparedStatement prst = null;
@@ -199,6 +198,7 @@ public class Login extends javax.swing.JFrame {
                             update.setString(1, String.valueOf(rs.getInt("id")));
                          update.executeUpdate();
                         update.close();
+                        view_menu home = new view_menu();
                            home.setVisible(true);
                         dispose();
                     }

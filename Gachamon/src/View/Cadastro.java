@@ -211,6 +211,7 @@ public class Cadastro extends javax.swing.JFrame {
             prst.setInt(4, user.getBalance());
            
             prst.executeUpdate();
+            prst.close();
            
             JOptionPane.showMessageDialog(rootPane, "Usuário adicionado com sucesso!");
              new Thread(){
@@ -230,7 +231,13 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
-        
+        new Thread(){
+               public void run(){
+              Login login = new Login();
+              login.setVisible(true);
+              dispose();  
+              }
+         }.start(); 
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     /**

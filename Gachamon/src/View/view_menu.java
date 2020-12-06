@@ -36,8 +36,6 @@ public class view_menu extends javax.swing.JFrame {
     private int mewtwo;
     private int lucario;
     public String txtNome;  
-    String nome = "-";
-    int saldo = 0;
     
             
     /**
@@ -49,20 +47,9 @@ public class view_menu extends javax.swing.JFrame {
 
     public view_menu() {
         initComponents();
-        Connection con = ConnectionJDBC.getConnection();
-        String update = "select * from cliente where logado = true";
-        PreparedStatement prst = null;
         try {
-            prst = con.prepareStatement(update);
-        } catch (SQLException ex) {
-            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ResultSet rs = null;
-        try {
-            rs = prst.executeQuery();
-            rs.next();
-            nome = rs.getString("nome");
-            saldo = rs.getInt("saldo");
+            saldotxt.setText("Saldo: "+ Integer.toString(ConnectionJDBC.usuarioLogado().getInt("saldo")));
+            nometxt.setText("Treinador: "+ ConnectionJDBC.usuarioLogado().getString("nome"));
             }catch (SQLException ex) {
             	Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -80,9 +67,6 @@ public class view_menu extends javax.swing.JFrame {
         pikachu=0;
         lucario=0;
         mewtwo=0;
-        saldostr = Integer.toString(saldo);
-        saldotxt.setText("Saldo: "+ saldostr);
-        nometxt.setText("Treinador: "+ nome);
         addsaldo.setVisible(false);
         enviarbut.setVisible(false);
         txtpoke.setVisible(false);
@@ -349,12 +333,29 @@ public class view_menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void playbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playbutActionPerformed
+       Connection con = ConnectionJDBC.getConnection();
+        int saldo = 0;
+        try {
+            saldo = ConnectionJDBC.usuarioLogado().getInt("saldo");
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(saldo!=0){
+            saldotxt.setText("Saldo: "+ (saldo-1));
+        }
         if(saldo>=1){
         jLabel2.setVisible(true);
-        saldo-=1;
+        PreparedStatement update;
+            try {
+                update = con.prepareStatement("update cliente set saldo = ? where id = ?");
+                update.setInt(1, ConnectionJDBC.usuarioLogado().getInt("saldo")-1);
+                update.setInt(2, ConnectionJDBC.usuarioLogado().getInt("id"));
+                update.executeUpdate();
+                update.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         jLabel3.setVisible(false);
-        saldostr = Integer.toString(saldo);
-        saldotxt.setText("Saldo: "+ saldostr);
         txtpoke.setVisible(true);
         playbut.setVisible(false);
         endbut.setVisible(true);
@@ -375,9 +376,7 @@ public class view_menu extends javax.swing.JFrame {
         zubatimg.setVisible(false);
         }
         else{
-            jDialog1.setSize(500, 500);
-             jDialog1.setVisible(true);
-             
+               javax.swing.JOptionPane.showMessageDialog(rootPane, "Saldo insuficiente: adicione mais créditos para poder jogar!");
             }
     }//GEN-LAST:event_playbutActionPerformed
 
@@ -389,7 +388,8 @@ public class view_menu extends javax.swing.JFrame {
         playbut.setVisible(true);
         endbut.setVisible(false);
         pokedex pok = new pokedex();
-        
+        Connection con = ConnectionJDBC.getConnection();
+        PreparedStatement insert;
         aleatorio = gerador.nextInt(14);
         switch(aleatorio){
             
@@ -400,6 +400,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setBlast(10);
                 setBlastoise(10);
+        try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;
             case 1:
                 nomepoketxt.setText("BULBASAUR");
@@ -408,6 +417,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setBulba(10);
                 setBulbasaur(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;
             case 2:
                 nomepoketxt.setText("CATERPIE");
@@ -416,6 +434,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setCaterp(10);
                 setCaterpie(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;
             case 3:
                 nomepoketxt.setText("CHARIZARD");
@@ -432,6 +459,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setCharm(10);
                 setCharmander(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;    
             case 5:
                 nomepoketxt.setText("EEVEE");
@@ -440,6 +476,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setEevee(10);
                 setEevee(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;  
             case 6:
                 nomepoketxt.setText("EKANS");
@@ -448,6 +493,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setEkans(10);
                 setEkans(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;      
             case 7:
                 nomepoketxt.setText("LUCARIO");
@@ -456,6 +510,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setLuca(10);
                 setLucario(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;      
             case 8:
                 nomepoketxt.setText("MEOWTH");
@@ -464,6 +527,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setMeowth(10);
                 setMeowth(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;  
             case 9:
                 nomepoketxt.setText("MEWTWO");
@@ -472,6 +544,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setMew2(10);
                 setMewtwo(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;    
             case 10:
                 nomepoketxt.setText("PIKACHU");
@@ -480,6 +561,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setPik(10);
                 setPikachu(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;      
             case 11:
                 nomepoketxt.setText("PSYDUCK");
@@ -488,6 +578,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setPsy(10);
                 setPsyduck(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;    
             case 12:
                 nomepoketxt.setText("SQUIRTLE");
@@ -496,6 +595,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setSquirt(10);
                 setSquirtle(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;    
             case 13:
                 nomepoketxt.setText("ZUBAT");
@@ -504,6 +612,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setZub(10);
                 setZubat(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;         
             default: 
                 break;
@@ -612,11 +729,20 @@ public class view_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_addsaldoActionPerformed
 
     private void enviarbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarbutActionPerformed
-        saldo += Integer.parseInt (addsaldo.getText());
-        saldostr = Integer.toString(saldo);
-        saldotxt.setText("Saldo: "+ saldostr);
-        addsaldo.setVisible(false);
-        enviarbut.setVisible(false);
+        Connection con = ConnectionJDBC.getConnection();
+        PreparedStatement update;
+            try {
+                update = con.prepareStatement("update cliente set saldo = ? where id = ?");
+                update.setInt(1, (Integer.parseInt(addsaldo.getText()) + ConnectionJDBC.usuarioLogado().getInt("saldo")));
+                update.setInt(2, ConnectionJDBC.usuarioLogado().getInt("id"));
+                update.executeUpdate();
+                update.close();
+                saldotxt.setText("Saldo: " + ConnectionJDBC.usuarioLogado().getInt("saldo"));
+                addsaldo.setVisible(false);
+                enviarbut.setVisible(false);
+            } catch (SQLException ex) {
+                Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_enviarbutActionPerformed
 
     /**

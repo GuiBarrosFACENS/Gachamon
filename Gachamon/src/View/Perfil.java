@@ -65,8 +65,8 @@ public class Perfil extends javax.swing.JFrame {
         txtSenha = new javax.swing.JTextField();
         btnVoltar3 = new javax.swing.JButton();
         btnVoltar4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,23 +132,27 @@ public class Perfil extends javax.swing.JFrame {
         });
         jPanel3.add(btnVoltar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
+        jPanel2.setBackground(new java.awt.Color(242, 242, 142));
+
         jLabel3.setBackground(new java.awt.Color(247, 247, 121));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("PERFIL TREINADOR");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(242, 242, 142));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel3))
         );
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 410, 60));
@@ -205,7 +209,7 @@ public class Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-    int  opcao = javax.swing.JOptionPane.showConfirmDialog(rootPane, "Você deseja deletar este perfil?");
+    int  opcao = javax.swing.JOptionPane.showConfirmDialog(rootPane, "Você deseja mesmo deletar este perfil?");
     if(opcao == 0){
         Connection con = ConnectionJDBC.getConnection();
         String select = "select * from cliente where logado = true";
@@ -219,11 +223,15 @@ public class Perfil extends javax.swing.JFrame {
         try {
             rs = prst.executeQuery();
             rs.next();
-            String delete = "delete from cliente where id = ?";
+            String delete = "delete from cliente_pokemon where cliente_id = ?";
         PreparedStatement ps = con.prepareStatement(delete);  
         ps.setInt(1, rs.getInt("id"));
             ps.executeUpdate();
             ps.close();
+            PreparedStatement prstmnt = con.prepareStatement("delete from cliente where id = ?");
+            prstmnt.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            prstmnt.executeUpdate();
+            prstmnt.close();
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Perfil deletado!");
             new Thread(){
                public void run(){
@@ -240,7 +248,28 @@ public class Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     private void btnVoltar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar3ActionPerformed
-
+        Connection con = ConnectionJDBC.getConnection();
+        String update = "select * from cliente where logado = true";
+        PreparedStatement prst = null;
+        try {
+            prst = con.prepareStatement(update);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSet rs = null;
+        try {
+            rs = prst.executeQuery();
+            rs.next();
+            PreparedStatement logout = con.prepareStatement("update cliente set logado = false where id = ?");
+            logout.setInt(1, rs.getInt("id"));
+            logout.executeUpdate();
+            logout.close();
+            Login login = new Login();
+            login.setVisible(true);
+            dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }//GEN-LAST:event_btnVoltar3ActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
