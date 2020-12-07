@@ -451,6 +451,15 @@ public class view_menu extends javax.swing.JFrame {
                 nomepoketxt.setVisible(true);
                 pok.setChariz(10);
                 setCharizard(10);
+                try {
+            insert = con.prepareStatement("insert into cliente_pokemon values(?,?)");
+            insert.setInt(1, ConnectionJDBC.usuarioLogado().getInt("id"));
+            insert.setInt(2, aleatorio+1);
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
                 break;    
             case 4:
                 nomepoketxt.setText("CHARMANDER");
